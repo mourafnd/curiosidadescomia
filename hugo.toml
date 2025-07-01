@@ -1,0 +1,7 @@
+baseURL = "https://curiosidadescomia.netlify.app/"
+languageCode = "pt-br"
+title = "Curiosidades com IA"
+theme = "PaperMod"
+
+[params]
+ShowReadingTime = true
