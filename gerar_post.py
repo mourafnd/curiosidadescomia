@@ -5,7 +5,7 @@ import re
 import random
 
 # 🔑 Sua chave da OpenAI
-openai.api_key = os.getenv("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")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def slugify(text):
     text = text.lower()
