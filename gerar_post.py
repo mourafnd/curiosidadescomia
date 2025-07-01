@@ -17,7 +17,7 @@ def slugify(text):
 def suggest_theme():
     prompt = "Me sugira um tema curto, curioso e popular para um blog de curiosidades. Apenas o nome do tema."
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=30,
         temperature=1.0
@@ -27,11 +27,11 @@ def suggest_theme():
 # Gera o conteúdo do post com base no tema
 def generate_post(theme):
     prompt = (
-        f"Gere um post de blog com título e pelo menos 5 curiosidades sobre o tema '{theme}'. "
+        f"Gere um post de blog com título e pelo menos 10 curiosidades sobre o tema '{theme}'. "
         f"Use formatação Markdown e linguagem leve e envolvente. Use título com # e subtítulos com ##."
     )
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "Você é um redator de blog criativo."},
             {"role": "user", "content": prompt}
@@ -39,6 +39,7 @@ def generate_post(theme):
         temperature=0.85,
         max_tokens=1200
     )
+
     return response.choices[0].message.content, theme
 
 # Salva o conteúdo gerado em um arquivo Markdown com front matter Hugo
